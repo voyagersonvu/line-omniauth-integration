@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV['DB_USERNAME'] || 'postgres' %>
+  password: <%= ENV['DB_PASSWORD'] || '' %>
+  host: <%= ENV['DB_HOST'] || 'localhost' %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: demo_line_develop
+
+test:
+  <<: *default
+  database: demo_line_test
+
+production:
+  <<: *default
+  database: demo_line_production
+  username: <%= ENV['DB_USERNAME'] || 'postgres' %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] || 'localhost' %>

@@ -1,0 +1,12 @@
+
+<div class="min-h-screen bg-gray-100 flex items-center justify-center">
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full text-center">
+    <h1 class="text-3xl font-semibold text-blue-600 mb-6">Welcome to Demo LINE App</h1>
+
+    <%= button_to destroy_user_session_path, method: :delete, class: "px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500" do %>
+      Logout
+    <% end %>
+
+    <%= button_to "Send LINE Notification", send_line_notification_path, method: :post, class: "mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500" %>
+  </div>
+</div>

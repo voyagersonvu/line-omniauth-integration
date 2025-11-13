@@ -1,0 +1,28 @@
+<%- if controller_name != 'sessions' %>
+  <%= link_to "Log in", new_session_path(resource_name), class: "text-blue-600 hover:text-blue-800 font-medium" %><br />
+<% end %>
+
+<div class="flex space-x-4 mb-6">
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <!-- Sign up button -->
+    <%= link_to "Sign up", new_registration_path(resource_name), class: "l py-2 px-4 text-white bg-blue-600 rounded-md hover:bg-blue-700 text-center font-medium" %><br />
+  <% end %>
+
+  <%- if devise_mapping.omniauthable? %>
+    <!-- Sign in with Line button -->
+    <%= link_to "Login with LINE", user_line_omniauth_authorize_path, class: "py-2 px-4 bg-[#00C300] text-white rounded-md hover:bg-[#009900] focus:outline-none focus:ring-2 focus:ring-green-500 text-center w-full sm:w-auto" %>
+  <% end %>
+</div>
+
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-red-600 hover:text-red-800 font-medium" %><br />
+<% end %>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "text-yellow-600 hover:text-yellow-800 font-medium" %><br />
+<% end %>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: "text-indigo-600 hover:text-indigo-800 font-medium" %><br />
+<% end %>
